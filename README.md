@@ -18,7 +18,7 @@ Local Storage: For data persistence.
 
 # Installation
 Clone the repository:
-git clone 
+git clone https://github.com/Gogi2016/Binary-City-Assessment.git
 
 Navigate to the project directory:
 cd client-management-system
