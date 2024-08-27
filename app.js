@@ -113,6 +113,19 @@ $(document).ready(function () {
         $('#contactFormContent')[0].reset();
     });
 
+    // Function to delete a client
+    function deleteClient(clientCode) {
+        clients = clients.filter(client => client.code !== clientCode);
+        localStorage.setItem('clients', JSON.stringify(clients));
+        displayClients();
+    }
+
+    // Event listener for delete buttons
+    $('#clientsTable').on('click', '.delete-client', function () {
+        const clientCode = $(this).data('id');
+        deleteClient(clientCode);
+    });
+
     // Initialize the client and contact views
     displayClients();
     displayContacts();
