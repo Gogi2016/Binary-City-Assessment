@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Management System</title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap for styling (optional) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        /* Custom styles */
+        .container { margin-top: 20px; }
+        .readonly { background-color: #e9ecef; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Client Management System</h2>
+        
+        <!-- Navigation Tabs -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="clients-tab" data-bs-toggle="tab" data-bs-target="#clients" type="button" role="tab" aria-controls="clients" aria-selected="true">Clients</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contacts-tab" data-bs-toggle="tab" data-bs-target="#contacts" type="button" role="tab" aria-controls="contacts" aria-selected="false">Contacts</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="clientForm-tab" data-bs-toggle="tab" data-bs-target="#clientForm" type="button" role="tab" aria-controls="clientForm" aria-selected="false">Client Form</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contactForm-tab" data-bs-toggle="tab" data-bs-target="#contactForm" type="button" role="tab" aria-controls="contactForm" aria-selected="false">Contact Form</button>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="myTabContent">
+            <!-- Clients Tab -->
+            <div class="tab-pane fade show active" id="clients" role="tabpanel" aria-labelledby="clients-tab">
+                <h3 class="mt-4">Clients List</h3>
+                <table class="table table-striped" id="clientsTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Client Code</th>
+                            <th>Linked Contacts</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Clients will be listed here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Contacts Tab -->
+            <div class="tab-pane fade" id="contacts" role="tabpanel" aria-labelledby="contacts-tab">
+                <h3 class="mt-4">Contacts List</h3>
+                <table class="table table-striped" id="contactsTable">
+                    <thead>
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Email Address</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Contacts will be listed here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Client Form Tab -->
+            <div class="tab-pane fade" id="clientForm" role="tabpanel" aria-labelledby="clientForm-tab">
+                <h3 class="mt-4">Add New Client</h3>
+                <form id="clientFormContent">
+                    <div class="mb-3">
+                        <label for="clientName" class="form-label">Client Name</label>
+                        <input type="text" class="form-control" id="clientName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="clientCode" class="form-label">Client Code</label>
+                        <input type="text" class="form-control readonly" id="clientCode" readonly>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Client</button>
+                </form>
+            </div>
+
+            <!-- Contact Form Tab -->
+            <div class="tab-pane fade" id="contactForm" role="tabpanel" aria-labelledby="contactForm-tab">
+                <h3 class="mt-4">Add New Contact</h3>
+                <form id="contactFormContent">
+                    <div class="mb-3">
+                        <label for="contactName" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="contactName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contactSurname" class="form-label">Surname</label>
+                        <input type="text" class="form-control" id="contactSurname" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contactEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="contactEmail" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Contact</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery Script -->
+    <script src="app.js"></script>
+</body>
+</html>
